@@ -4,7 +4,7 @@ services:
     golang_desafio_k8s:
         build: 
             context: .
-            dockerfile: go-k8s/Dockerfile-ci
+            dockerfile: Dockerfile-ci
         container_name: golang_desafio_k8s
         expose:
             - "8000"
