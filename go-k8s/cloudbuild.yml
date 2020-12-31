@@ -7,7 +7,7 @@ steps:
     args: ['exec', '-t', 'golang_desafio_k8s', 'go', 'test', './...']
   - id: "List container dir"
     name: docker
-    args: ['ls', '-lah', '/']
+    args: ['ls', '-lah']
   - id: "List volume dir"
     name: docker
     args: ['ls', '-lah', '/workspace/src']
