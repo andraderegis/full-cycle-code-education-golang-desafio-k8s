@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+    name: nginx-deployment-server
+spec:
+    replicas: 3
+    selector:
+        matchLabels:
+            app: nginx-deployment-server
+            tier: frontend
+    template:
+        metadata:
+            labels:
+                app: nginx-deployment-server
+                tier: frontend
+        spec:
+            containers:
+              - name: nginx-pod
+                image: nginx:1.19.2-alpine
+                ports:
+                    - containerPort: 80
+                volumeMounts:
+                  - name: nginx
+                    mountPath: /usr/share/nginx/html
+            initContainers:
+                - name: set-nginx-page
+                  image: busybox
+                  command: ['sh', '-c', 'echo "<html><body><h2>Code.education Rocks.</h2></body></html>" > /nginx-page/index.html']
+                  volumeMounts:
+                    - name:  nginx
+                      mountPath: "/nginx-page"
+            volumes:
+                - name: nginx            
+                  emptyDir: {}
+
+              
+
