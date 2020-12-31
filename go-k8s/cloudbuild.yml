@@ -1,7 +1,7 @@
 steps:
   - id: "Running Docker Compose"
     name: docker/compose
-    args: ['-f', 'docker-compose.yml', 'up', '-d']
+    args: ['-f', 'go-k8s/docker-compose.yml', 'up', '-d']
   - id: "Running Unit Tests"
     name: docker
     args: ['exec', '-t', 'golang_desafio_k8s', 'go', 'test', './...']
