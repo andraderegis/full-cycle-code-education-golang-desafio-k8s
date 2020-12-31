@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+    golang_desafio_k8s:
+        build: 
+            context: .
+        container_name: golang_desafio_k8s
+        expose:
+            - "8000"
+        ports: 
+            - "8000:8000"
+        volumes:
+            - go-k8s:/go-k8s
+volumes:
+    go-k8s:
