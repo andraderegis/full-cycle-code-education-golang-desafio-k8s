@@ -7,7 +7,7 @@ steps:
     args: ['exec', '-t', 'golang_desafio_k8s', 'go', 'test', './...']
   - id: 'List dir'
     name: docker
-    args: ['exec', '-t', 'ls', '-lah']
+    args: ['exec', '-t', 'golang_desafio_k8s', 'ls', '-lah']
   - id: 'Push Image'
     name: docker
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/golang_desafio_k8s:${_GOLANG_FULLCYCLE_DESAFIO_K8S_VERSION}', '-f', 'Dockerfile-ci', '.']
