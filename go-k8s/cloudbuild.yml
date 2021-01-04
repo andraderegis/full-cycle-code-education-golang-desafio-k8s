@@ -5,12 +5,15 @@ steps:
   - id: "List workspace dir"
     name: docker
     args: ['ls', '-lah']
+  - id: "List go-k8s dir"
+    name: docker
+    args: ['ls', '-lah', 'go-k8s']
   # - id: "Running Unit Tests"
   #   name: docker
   #   args: ['exec', '-t', 'golang_desafio_k8s', 'go', 'test', './...']
-  # - id: 'Push Image'
-  #   name: docker
-  #   args: ['build', '-t', 'gcr.io/$PROJECT_ID/golang_desafio_k8s:${_GOLANG_FULLCYCLE_DESAFIO_K8S_VERSION}', '-f', 'Dockerfile-ci', '.']
+  - id: 'Push Image'
+    name: docker
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/golang_desafio_k8s:${_GOLANG_FULLCYCLE_DESAFIO_K8S_VERSION}', '-f', 'go-k8s/Dockerfile', '.']
 substitutions:
   _GOLANG_FULLCYCLE_DESAFIO_K8S_VERSION: 1.0.0
 images: ['gcr.io/$PROJECT_ID/golang_desafio_k8s:${_GOLANG_FULLCYCLE_DESAFIO_K8S_VERSION}']
