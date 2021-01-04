@@ -1,7 +1,7 @@
 FROM golang:1.14-alpine as builder
 RUN apk add --no-cache upx build-base
 WORKDIR /go/src/go-k8s
-COPY . .
+COPY go-k8s/ .
 RUN ls -lah
 RUN GOOS=linux go build -ldflags "-s -w" -tags netgo -a main.go
 #RUN upx --brute main
