@@ -5,6 +5,10 @@ steps:
   # - id: "Running Unit Tests"
   #   name: docker
   #   args: ['exec', '-t', 'golang_desafio_k8s', 'go', 'test', './...']
+  - id: 'Current diretory'
+    name: 'docker'
+    args: ['pwd']
+    dir: 'go-k8s'
   - id: 'Build Image'
     name: docker
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/${_GOLANG_FULLCYCLE_DESAFIO_K8S_NAME}', '-f', 'go-k8s/Dockerfile-ci', '.']
