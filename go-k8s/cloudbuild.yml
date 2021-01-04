@@ -8,9 +8,6 @@ steps:
   - id: 'Build Image'
     name: docker
     args: ['build', '-t', 'gcr.io/$PROJECT_ID/${_GOLANG_FULLCYCLE_DESAFIO_K8S_NAME}', '-f', 'go-k8s/Dockerfile-ci', '.']
-    env:
-      - "GOPATH=go"
-
 substitutions:
   _GOLANG_FULLCYCLE_DESAFIO_K8S_NAME: 'golang_desafio_k8s:${_GOLANG_FULLCYCLE_DESAFIO_K8S_VERSION}'
   _GOLANG_FULLCYCLE_DESAFIO_K8S_VERSION: 1.0.0
