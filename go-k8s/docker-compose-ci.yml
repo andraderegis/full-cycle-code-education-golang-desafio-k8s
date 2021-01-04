@@ -6,11 +6,14 @@ services:
             context: .
             dockerfile: Dockerfile-ci
         container_name: golang_desafio_k8s
+        volumes:
+            - .:/go/src/go-k8s
         expose:
             - "8000"
         ports: 
             - "8000:8000"
-        volumes:
-            - go-k8s:/go-k8s
-volumes:
-    go-k8s:
+        networks:
+            - desafio-go-k8s
+networks:
+    desafio-go-k8s:
+        driver: bridge
