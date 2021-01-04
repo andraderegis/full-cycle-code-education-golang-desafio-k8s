@@ -3,6 +3,6 @@ RUN apk add --no-cache upx build-base
 WORKDIR /go
 COPY . ./src/desafio-k8s/go-k8s
 RUN GOOS=linux go build -ldflags "-s -w" -tags netgo -a ./src/desafio-k8s/go-k8s/main.go
-RUN upx --brute main
+#RUN upx --brute main
 
 ENTRYPOINT ["./main"]
