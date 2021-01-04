@@ -1,8 +1,8 @@
 package main
 
 import (
-	"desafio-k8s/go-k8s/messages"
 	"fmt"
+	"go-k8s/messages"
 	"net/http"
 )
 
