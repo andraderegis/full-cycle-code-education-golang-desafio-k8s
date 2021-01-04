@@ -7,7 +7,7 @@ services:
             dockerfile: Dockerfile-ci
         container_name: golang_desafio_k8s
         volumes:
-            - .:/go/src/go-k8s
+            - .:/go
         expose:
             - "8000"
         ports: 
