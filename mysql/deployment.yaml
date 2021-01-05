@@ -11,7 +11,7 @@ spec:
   template:
     metadata:
       labels:
-        app: mysql-server
+        app: mysql-deployment
         tier: db
     spec:
       containers:
